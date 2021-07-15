@@ -29,11 +29,15 @@
         function gtag() {
             dataLayer.push(arguments);
         }
-        // 로컬서버에서는 구글애널리틱스 트래킹 비활성화
+        // 로컬서버가 아닌 실서버에서만 구글애널리틱스 트래킹 활성화
         if (document.location.hostname !== 'localhost') {
             gtag('js', new Date());
-            gtag('config', 'G-1W81K7RMHF', { send_page_view: false });
+            gtag('config', 'G-1W81K7RMHF');
         }
+    </script>
+    <script type='text/javascript'>
+        function onSubscribeClick() { gtag('event', '서비스 오픈 알림 클릭') };
+        function onSubmitClick() { gtag('event', '프로젝트 공유 클릭') };
     </script>
 </head>
 
@@ -46,8 +50,8 @@
                 <p style="font-size: 24px;">개발자 포트폴리오 큐레이션 서비스</p>
                 <div class="desktop-hidden w-100" style="margin-bottom: 20px"><img class="img-fluid" src="assets/img/hero.jpg"></div>
                 <p class="mobile-hidden" style="margin:40px auto;">선배・동료 개발자들의 포트폴리오 혹은 토이 프로젝트를 한눈에 모아보고, 좋은 프로젝트는 더 많은 사람들과 공유해보세요.</p>
-                <a class="btn btn-primary" role="button" target="_blank" href="https://page.stibee.com/subscriptions/129317" style="background-color: #1302f4;">서비스 오픈 알림 받기</a>
-                <a class="btn btn-primary" role="button" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdXQaXRohcJHLI1rh4lNQsCPGTMMplppgg7bCGS6WOlxVCi2Q/viewform" style="background-color: #000000;margin-right: 20px;">프로젝트 공유하기</a>
+                <a class="btn btn-primary" role="button" target="_blank" href="https://page.stibee.com/subscriptions/129317" onclick="onSubscribeClick()" style="background-color: #1302f4;">서비스 오픈 알림 받기</a>
+                <a class="btn btn-primary" role="button" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSdXQaXRohcJHLI1rh4lNQsCPGTMMplppgg7bCGS6WOlxVCi2Q/viewform" onclick="onSubmitClick()" style="background-color: #000000;margin-right: 20px;">프로젝트 공유하기</a>
                 <p class="desktop-hidden" style="margin-top:40px; text-align:center; line-height: 36px;">선배・동료 개발자들의 개인 프로젝트를 한눈에 모아보고, 좋은 프로젝트는 더 많은 사람들과 공유해보세요.</p>
             </div>
             <div class="mobile-hidden w-100 my-auto"><img class="img-fluid" src="assets/img/hero.jpg"></div>
