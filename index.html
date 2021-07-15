@@ -14,6 +14,27 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli">
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script src="assets/js/script.min.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.7.1/firebase-app.js"></script>
+    <script src="/__/firebase/8.7.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/init.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1W81K7RMHF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        // 로컬서버에서는 구글애널리틱스 트래킹 비활성화
+        if (document.location.hostname !== 'localhost') {
+            gtag('js', new Date());
+            gtag('config', 'G-1W81K7RMHF', { send_page_view: false });
+        }
+    </script>
 </head>
 
 <body id="page-top">
@@ -37,14 +58,6 @@
             <p>©&nbsp;DevFolio 2021. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="/__/firebase/8.7.1/firebase-app.js"></script>
-    <script src="/__/firebase/8.7.1/firebase-analytics.js"></script>
-    <script src="/__/firebase/init.js"></script>
 </body>
 
 </html>
