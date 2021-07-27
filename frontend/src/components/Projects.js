@@ -10,7 +10,7 @@ const Projects = ({ projects }) => {
   //   setValue(newValue);
   // };
   return (
-    <>
+    <div style={{ paddingTop: "72px" }}>
       {/* <Tabs
         value={value}
         indicatorColor="primary"
@@ -25,7 +25,7 @@ const Projects = ({ projects }) => {
       {projects.map((project, i) => {
         return <Project project={project} key={`article__${project.id}`} />;
       })}
-    </>
+    </div>
   );
 };
 
