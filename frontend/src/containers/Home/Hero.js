@@ -16,16 +16,16 @@ const Hero = () => {
           선배・동료 개발자들의 포트폴리오 혹은 토이 프로젝트를 한눈에 모아보고,
           좋은 프로젝트는 더 많은 사람들과 공유해보세요.
         </p>
-        <Button
+        {/* <Button
           color="primary"
           variant="contained"
           href="https://page.stibee.com/subscriptions/129317"
           target="_blank"
-          onClick={() => window.gtag("event", "서비스 오픈 알림 클릭")}
+          onClick={() => window.gtag("event", "오늘의 포트폴리오 클릭")}
           className={classes.button}
         >
           오늘의 포트폴리오
-        </Button>
+        </Button> */}
         <Button
           color="secondary"
           variant="contained"

@@ -16,7 +16,7 @@ const PROJECTS_QUERY = gql`
       }
       thumbnail_url
       view_count
-      created_at
+      published_at
     }
   }
 `;

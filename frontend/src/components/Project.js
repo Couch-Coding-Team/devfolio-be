@@ -31,9 +31,13 @@ const Project = ({ project }) => {
             <Typography variant="h4">
               <strong>{project.title}</strong>
             </Typography>
-            <p>{project.description}</p>
+            <p>
+              {project.description.length > 150
+                ? project.description.substring(0, 150) + "..."
+                : project.description}
+            </p>
             {project.tech_stacks.map((stack) => (
-              <Tag label={stack.name} />
+              <Tag key={stack.name} label={stack.name} />
             ))}
           </div>
           <div className={classes.cardFooter}>

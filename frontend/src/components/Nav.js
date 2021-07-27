@@ -9,7 +9,7 @@ const Nav = () => {
         <Link to="/">
           <img
             alt="logo"
-            src="assets/logo.png"
+            src="/assets/logo.png"
             style={{ height: "20px", width: "auto" }}
           />
         </Link>

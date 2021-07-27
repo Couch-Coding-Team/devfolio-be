@@ -6,11 +6,10 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import Nav from "./components/Nav";
 import Home from "./containers/Home";
 import Project from "./containers/Project";
-import { routes } from "./constants/routes";
 
 const ROUTES = [
   { path: "/", component: Home, exact: true },
-  { path: routes.PROJECT, component: Project, exact: true },
+  { path: "/project/:id", component: Project, exact: true },
 ];
 
 function App() {
@@ -23,6 +22,7 @@ function App() {
           <Switch>
             {ROUTES.map((route) => (
               <Route
+                key={route.path}
                 path={route.path}
                 component={route.component}
                 exact={route.exact}
@@ -66,6 +66,7 @@ const theme = createTheme({
         body: {
           "& a": {
             textDecoration: "none",
+            color: "initial",
           },
         },
       },
