@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
-import VisibilityIcon from "@material-ui/icons/Visibility";
+// import VisibilityIcon from "@material-ui/icons/Visibility";
 import Tag from "./Tag";
 import IconLabel from "./IconLabel";
 
@@ -42,7 +42,7 @@ const Project = ({ project }) => {
           </div>
           <div className={classes.cardFooter}>
             <IconLabel icon={<GitHubIcon />} label={project.owner_name} />
-            <IconLabel icon={<VisibilityIcon />} label="12" />
+            {/* <IconLabel icon={<VisibilityIcon />} label="12" /> */}
           </div>
         </CardContent>
       </Card>
@@ -59,10 +59,19 @@ const useStyles = makeStyles((theme) => ({
     gap: "72px",
     borderRadius: "10px",
     boxShadow: "15px 15px 30px rgba(0, 0, 0, 0.1)",
+    [theme.breakpoints.down("sm")]: {
+      height: "100%",
+      padding: "18px",
+      flexDirection: "column",
+      gap: "24px",
+    },
     "& .MuiCardMedia-root": {
       flex: "0 0 50%",
       "& img": {
         objectFit: "cover",
+      },
+      [theme.breakpoints.down("sm")]: {
+        height: "50%",
       },
     },
     "& .MuiCardContent-root": {
@@ -70,17 +79,28 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       justifyContent: "space-between",
       padding: 0,
+      "& .MuiTypography-h4": {
+        [theme.breakpoints.down("sm")]: {
+          marginBottom: "12px",
+        },
+      },
     },
     "& .MuiChip-root": {
       margin: "auto 4px 4px auto",
     },
     "& p": {
       margin: "24px 0",
+      [theme.breakpoints.down("sm")]: {
+        display: "none",
+      },
     },
   },
   cardFooter: {
     display: "flex",
     justifyContent: "space-between",
+    [theme.breakpoints.down("sm")]: {
+      marginTop: "24px",
+    },
   },
 }));
 

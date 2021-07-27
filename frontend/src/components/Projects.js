@@ -1,17 +1,17 @@
 import React from "react";
 import Project from "./Project";
-import Tabs from "@material-ui/core/Tabs";
-import Tab from "@material-ui/core/Tab";
+// import Tabs from "@material-ui/core/Tabs";
+// import Tab from "@material-ui/core/Tab";
 
 const Projects = ({ projects }) => {
-  const [value, setValue] = React.useState(0);
+  // const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  // const handleChange = (event, newValue) => {
+  //   setValue(newValue);
+  // };
   return (
     <>
-      <Tabs
+      {/* <Tabs
         value={value}
         indicatorColor="primary"
         textColor="primary"
@@ -21,7 +21,7 @@ const Projects = ({ projects }) => {
       >
         <Tab label="최신순" />
         <Tab label="인기순" />
-      </Tabs>
+      </Tabs> */}
       {projects.map((project, i) => {
         return <Project project={project} key={`article__${project.id}`} />;
       })}

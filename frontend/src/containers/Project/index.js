@@ -101,6 +101,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiChip-root": {
       marginRight: "8px",
+      [theme.breakpoints.down("sm")]: {
+        marginBottom: "8px",
+      },
     },
     "& blockquote": {
       background: "#f9f9f9",
@@ -113,6 +116,11 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     marginTop: "104px",
+    [theme.breakpoints.down("sm")]: {
+      margin: "28px auto",
+      flexDirection: "column",
+      gap: "28px",
+    },
   },
   detailsLeft: {
     display: "flex",
@@ -124,6 +132,9 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     marginRight: "24px",
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
+    },
   },
   banner: {
     margin: "72px 0",

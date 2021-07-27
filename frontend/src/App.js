@@ -71,8 +71,14 @@ const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      h4: {
+        fontSize: "1.5rem",
+      },
+    },
     MuiContainer: {
       root: {
+        padding: "72px 36px",
         "@media (min-width: 768px)": {
           padding: "140px",
         },
