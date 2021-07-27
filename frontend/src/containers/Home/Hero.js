@@ -24,7 +24,7 @@ const Hero = () => {
           onClick={() => window.gtag("event", "서비스 오픈 알림 클릭")}
           className={classes.button}
         >
-          서비스 오픈 알림 받기
+          오늘의 포트폴리오
         </Button>
         <Button
           color="secondary"
@@ -34,7 +34,7 @@ const Hero = () => {
           onClick={() => window.gtag("event", "프로젝트 공유 클릭")}
           className={classes.button}
         >
-          프로젝트 공유하기
+          포트폴리오 공유하기
         </Button>
         <p className={classes.mdHidden}>
           선배・동료 개발자들의 개인 프로젝트를 한눈에 모아보고, 좋은 프로젝트는

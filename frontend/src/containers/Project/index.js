@@ -4,15 +4,14 @@ import Query from "../../components/Query";
 import ReactMarkdown from "react-markdown";
 import Moment from "react-moment";
 
-import ARTICLE_QUERY from "../../queries/article/article";
+import ARTICLE_QUERY from "../../queries/article";
 
-const Article = () => {
+const Project = () => {
   let { id } = useParams();
 
   return (
     <Query query={ARTICLE_QUERY} slug={id}>
       {({ data: { articles } }) => {
-        console.log(articles);
         if (articles.length) {
           const imageUrl =
             process.env.NODE_ENV !== "development"
@@ -22,10 +21,10 @@ const Article = () => {
           return (
             <div>
               <div
-                id="banner"
                 data-src={imageUrl}
                 data-srcset={imageUrl}
                 data-uk-img
+                style={{ margin: " 20px", height: "800px" }}
               >
                 <h1>{articles[0].title}</h1>
               </div>
@@ -48,4 +47,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Project;

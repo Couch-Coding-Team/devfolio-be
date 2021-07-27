@@ -1,34 +1,43 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { makeStyles, Card, CardContent, CardMedia } from "@material-ui/core";
+import {
+  makeStyles,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import VisibilityIcon from "@material-ui/icons/Visibility";
 import Tag from "./Tag";
 import IconLabel from "./IconLabel";
 
-const Article = ({ article }) => {
+const Project = ({ project }) => {
   const classes = useStyles();
-  const imageUrl =
-    process.env.NODE_ENV !== "development"
-      ? article.image.url
-      : process.env.REACT_APP_BACKEND_URL + article.image.url;
 
   return (
-    <Link to={`/article/${article.slug}`}>
+    <Link to={`/project/${project.id}`}>
       <Card className={classes.card}>
         <CardMedia>
-          <div>
-            <img src={imageUrl} alt={article.image.url} width="100%" />
-          </div>
+          <img
+            src={project.thumbnail_url}
+            alt={project.thumbnail_url}
+            width="100%"
+            height="100%"
+          />
         </CardMedia>
         <CardContent>
           <div>
-            <p className={classes.articleTitle}>{article.title}</p>
-            <p>{article.description}</p>
-            <Tag label={article.category.name} />
+            <Typography variant="h4">
+              <strong>{project.title}</strong>
+            </Typography>
+            <p>{project.description}</p>
+            {project.tech_stacks.map((stack) => (
+              <Tag label={stack.name} />
+            ))}
           </div>
           <div className={classes.cardFooter}>
-            <IconLabel icon={<GitHubIcon />} label={article.author.name} />
+            <IconLabel icon={<GitHubIcon />} label={project.owner_name} />
             <IconLabel icon={<VisibilityIcon />} label="12" />
           </div>
         </CardContent>
@@ -39,24 +48,31 @@ const Article = ({ article }) => {
 
 const useStyles = makeStyles((theme) => ({
   card: {
+    height: "430px",
+    padding: "48px",
+    marginBottom: "36px",
     display: "flex",
     gap: "72px",
     borderRadius: "10px",
     boxShadow: "15px 15px 30px rgba(0, 0, 0, 0.1)",
-    padding: "48px",
-    marginBottom: "36px",
     "& .MuiCardMedia-root": {
       flex: "0 0 50%",
+      "& img": {
+        objectFit: "cover",
+      },
     },
     "& .MuiCardContent-root": {
       display: "flex",
       flexDirection: "column",
       justifyContent: "space-between",
+      padding: 0,
     },
-  },
-  articleTitle: {
-    fontSize: "24px",
-    fontWeight: "bold",
+    "& .MuiChip-root": {
+      margin: "auto 4px 4px auto",
+    },
+    "& p": {
+      margin: "24px 0",
+    },
   },
   cardFooter: {
     display: "flex",
@@ -64,4 +80,4 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default Article;
+export default Project;

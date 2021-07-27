@@ -1,10 +1,10 @@
 import React from "react";
-import Article from "./Article";
+import Project from "./Project";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
-const Articles = ({ articles }) => {
-  const [value, setValue] = React.useState(2);
+const Projects = ({ projects }) => {
+  const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -13,19 +13,20 @@ const Articles = ({ articles }) => {
     <>
       <Tabs
         value={value}
-        indicatorColor=""
+        indicatorColor="primary"
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example"
+        style={{ margin: "36px auto" }}
       >
         <Tab label="최신순" />
         <Tab label="인기순" />
       </Tabs>
-      {articles.map((article, i) => {
-        return <Article article={article} key={`article__${article.slug}`} />;
+      {projects.map((project, i) => {
+        return <Project project={project} key={`article__${project.id}`} />;
       })}
     </>
   );
 };
 
-export default Articles;
+export default Projects;
