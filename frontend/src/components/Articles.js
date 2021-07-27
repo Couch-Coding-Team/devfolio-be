@@ -13,7 +13,7 @@ const Articles = ({ articles }) => {
     <>
       <Tabs
         value={value}
-        indicatorColor="primary"
+        indicatorColor=""
         textColor="primary"
         onChange={handleChange}
         aria-label="disabled tabs example"

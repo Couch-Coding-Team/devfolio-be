@@ -30,8 +30,8 @@ const Article = () => {
                 <h1>{articles[0].title}</h1>
               </div>
 
-              <div className="uk-section">
-                <div className="uk-container uk-container-small">
+              <div>
+                <div>
                   <ReactMarkdown children={articles[0].content} />
                   <p>
                     <Moment format="MMM Do YYYY">

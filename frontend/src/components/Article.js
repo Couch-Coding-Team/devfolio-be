@@ -12,24 +12,18 @@ const Article = ({ article }) => {
     process.env.NODE_ENV !== "development"
       ? article.image.url
       : process.env.REACT_APP_BACKEND_URL + article.image.url;
+
   return (
     <Link to={`/article/${article.slug}`}>
-      <Card style={{ padding: "48px", display: "flex", gap: "72px" }}>
-        <CardMedia style={{ flex: "0 0 50%" }}>
+      <Card className={classes.card}>
+        <CardMedia>
           <div>
             <img src={imageUrl} alt={article.image.url} width="100%" />
           </div>
         </CardMedia>
-        <CardContent
-          style={{
-            // margin: "auto",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-between",
-          }}
-        >
+        <CardContent>
           <div>
-            <p className={classes.title}>{article.title}</p>
+            <p className={classes.articleTitle}>{article.title}</p>
             <p>{article.description}</p>
             <Tag label={article.category.name} />
           </div>
@@ -44,7 +38,23 @@ const Article = ({ article }) => {
 };
 
 const useStyles = makeStyles((theme) => ({
-  title: {
+  card: {
+    display: "flex",
+    gap: "72px",
+    borderRadius: "10px",
+    boxShadow: "15px 15px 30px rgba(0, 0, 0, 0.1)",
+    padding: "48px",
+    marginBottom: "36px",
+    "& .MuiCardMedia-root": {
+      flex: "0 0 50%",
+    },
+    "& .MuiCardContent-root": {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    },
+  },
+  articleTitle: {
     fontSize: "24px",
     fontWeight: "bold",
   },
