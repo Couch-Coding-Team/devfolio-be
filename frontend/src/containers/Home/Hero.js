@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles, Button, Grid } from "@material-ui/core";
 
 const Hero = () => {
   const classes = useStyles();
+  useEffect(() => {
+    fetch(
+      "http://ec2-3-37-250-79.ap-northeast-2.compute.amazonaws.com:1337/projects"
+    )
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
     <Grid container spacing={10}>
       <Grid item xs={12} md={6} className={classes.heroMain}>
