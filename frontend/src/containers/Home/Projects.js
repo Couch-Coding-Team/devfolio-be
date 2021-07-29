@@ -23,7 +23,7 @@ const Projects = ({ projects }) => {
         <Tab label="인기순" />
       </Tabs> */}
       {projects.map((project, i) => {
-        return <Project project={project} key={`article__${project.id}`} />;
+        return <Project project={project} key={`project__${project.id}`} />;
       })}
     </div>
   );

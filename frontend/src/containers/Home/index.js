@@ -1,5 +1,5 @@
 import React from "react";
-import Projects from "../../components/Projects";
+import Projects from "./Projects";
 import Query from "../../components/Query";
 import Hero from "./Hero";
 import PROJECTS_QUERY from "../../queries/projects";

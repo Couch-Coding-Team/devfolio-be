@@ -9,14 +9,19 @@ import {
 } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 // import VisibilityIcon from "@material-ui/icons/Visibility";
-import Tag from "./Tag";
-import IconLabel from "./IconLabel";
+import Tag from "../../components/Tag";
+import IconLabel from "../../components/IconLabel";
 
 const Project = ({ project }) => {
   const classes = useStyles();
 
   return (
-    <Link to={`/project/${project.id}`}>
+    <Link
+      to={`/project/${project.id}`}
+      onClick={() =>
+        window.gtag("event", "프로젝트 클릭", { project_id: project.id })
+      }
+    >
       <Card className={classes.card}>
         <CardMedia>
           <img

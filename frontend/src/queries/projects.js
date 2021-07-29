@@ -2,7 +2,7 @@ import gql from "graphql-tag";
 
 const PROJECTS_QUERY = gql`
   query Projects {
-    projects {
+    projects(sort: "published_at:desc") {
       id
       title
       description
