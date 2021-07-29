@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "devfolio-9a54e",
-    "public": "./public",
+    "public": "./build",
     "ignore": [
       "firebase.json",
       "**/.*",
