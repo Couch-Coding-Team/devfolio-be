@@ -1,7 +1,7 @@
 {
   "hosting": {
     "site": "devfolio-9a54e",
-    "public": "/public",
+    "public": "./public",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -10,7 +10,7 @@
     "rewrites": [
       {
         "source": "**",
-        "destination": "/public/index.html"
+        "destination": "./public/index.html"
       }
     ]
   }
