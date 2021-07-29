@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "name": "Projects",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "thumbnail_url": {
+      "type": "string"
+    },
+    "view_count": {
+      "type": "integer"
+    },
+    "project_github_url": {
+      "type": "string"
+    },
+    "demo_site_url": {
+      "type": "string"
+    },
+    "owner_name": {
+      "type": "string"
+    },
+    "owner_github_url": {
+      "type": "string"
+    },
+    "readme_code": {
+      "type": "text"
+    },
+    "last_commit_at": {
+      "type": "date"
+    },
+    "reference_url": {
+      "type": "string"
+    },
+    "is_hidden": {
+      "type": "boolean"
+    },
+    "tech_stacks": {
+      "collection": "tech-stacks",
+      "via": "projects",
+      "dominant": true
+    }
+  }
+}
