@@ -1,2 +1,3 @@
-# DevFolio
-개발자들의 토이프로젝트 큐레이션 서비스
+# Strapi application
+
+A quick description of your strapi application
