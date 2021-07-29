@@ -1,9 +1,12 @@
 import React from "react";
 import { useParams } from "react-router";
-import ReactMarkdown from "react-markdown";
 import moment from "moment";
 import { Button, makeStyles } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
+
+import ReactMarkdown from "react-markdown";
+import rehypeSanitize from "rehype-sanitize";
+import gfm from "remark-gfm";
 
 import PROJECT_QUERY from "../../queries/project";
 import Query from "../../components/Query";
@@ -75,13 +78,14 @@ const Project = () => {
                   </Button>
                 </div>
               </div>
-
-              <img
-                src={project.thumbnail_url}
-                alt={project.thumbnail_url}
-                className={classes.banner}
-              />
+              <div className={classes.imgWrapper}>
+                <img src={project.thumbnail_url} alt={project.thumbnail_url} />
+              </div>
               <ReactMarkdown
+                className="readme-markdown"
+                remarkPlugins={[gfm]} // styling table, strikethrough, link, checkbox
+                rehypePlugins={[rehypeSanitize]}
+                linkTarget="_blank"
                 children={project.readme_code}
                 components={{
                   img: ({ node, ...props }) => (
@@ -105,17 +109,63 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: "8px",
       },
     },
-    "& blockquote": {
-      background: "#f9f9f9",
-      borderLeft: "10px solid #ccc",
-      margin: "1.5em 10px",
-      padding: "0.5em 10px",
+    "& .readme-markdown": {
+      fontFamily: "Arial",
+      "& a": {
+        color: "-webkit-link",
+        textDecoration: "underline",
+      },
+      "& blockquote": {
+        background: "#f9f9f9",
+        borderLeft: "10px solid #ccc",
+        margin: "1.5em 10px",
+        padding: "0.5em 10px",
+      },
+      "& pre": {
+        fontFamily: "monospace",
+        whiteSpace: "pre",
+        backgroundColor: "#1B1F230D",
+        padding: "12px",
+        overflowX: "auto",
+      },
+      // "& pre code": {
+      //   whiteSpace: "inherit",
+      // },
+      "& code": {
+        // color: " #f8f8f2",
+        // backgroundColor: "#1B1F230D",
+      },
+      "& table": {
+        borderCollapse: "collapse",
+        "& th": {
+          border: "1px solid lightgrey",
+          padding: "6px 13px",
+        },
+        "& td": {
+          border: "1px solid lightgrey",
+          padding: "6px 13px",
+        },
+      },
+    },
+  },
+  imgWrapper: {
+    height: 0,
+    position: "relative",
+    paddingBottom: "52.63%" /* 이미지 비율 1900:1000 */,
+    marginBottom: "104px",
+    "& img": {
+      height: "100%",
+      width: "100%",
+      position: "absolute",
+      top: 0,
+      left: 0,
+      objectFit: "contain",
     },
   },
   details: {
     display: "flex",
     justifyContent: "space-between",
-    marginTop: "104px",
+    margin: "72px auto",
     [theme.breakpoints.down("sm")]: {
       margin: "28px auto",
       flexDirection: "column",
@@ -135,12 +185,6 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },
-  },
-  banner: {
-    margin: "72px 0",
-    height: "auto",
-    objectFit: "none",
-    width: "100%",
   },
 }));
 
