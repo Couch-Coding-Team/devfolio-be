@@ -1,5 +1,5 @@
 {
-  "name": "backend",
+  "name": "devfolio-0726",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -12,13 +12,13 @@
   "devDependencies": {},
   "dependencies": {
     "knex": "0.21.18",
-    "mime-types": "^2.1.27",
     "sqlite3": "5.0.0",
     "strapi": "3.6.5",
     "strapi-admin": "3.6.5",
     "strapi-connector-bookshelf": "3.6.5",
     "strapi-plugin-content-manager": "3.6.5",
     "strapi-plugin-content-type-builder": "3.6.5",
+    "strapi-plugin-documentation": "3.6.5",
     "strapi-plugin-email": "3.6.5",
     "strapi-plugin-graphql": "3.6.5",
     "strapi-plugin-i18n": "3.6.5",
@@ -30,8 +30,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "abb130f9-e104-4be2-9b5e-1f1642f07240",
-    "template": "https://github.com/strapi/strapi-template-blog"
+    "uuid": "1c74b3ad-d6ad-406a-a761-d16e32c15968"
   },
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
