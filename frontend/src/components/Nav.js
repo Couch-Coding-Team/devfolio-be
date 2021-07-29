@@ -4,7 +4,7 @@ import { AppBar, Toolbar } from "@material-ui/core";
 
 const Nav = () => {
   return (
-    <AppBar position="fixed" color="transparent" elevation={0}>
+    <AppBar position="fixed" color="inherit" elevation={0}>
       <Toolbar>
         <Link to="/">
           <img

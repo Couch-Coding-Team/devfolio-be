@@ -6,6 +6,7 @@ import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 import Nav from "./components/Nav";
 import Home from "./containers/Home";
 import Project from "./containers/Project";
+import Footer from "./components/Footer";
 
 const ROUTES = [
   { path: "/", component: Home, exact: true },
@@ -30,6 +31,7 @@ function App() {
             ))}
           </Switch>
         </Container>
+        <Footer />
       </ThemeProvider>
     </div>
   );
