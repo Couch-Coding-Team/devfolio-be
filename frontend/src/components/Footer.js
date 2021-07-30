@@ -25,7 +25,7 @@ export default Footer;
 
 const useStyles = makeStyles({
   root: {
-    padding: "104px 0 52px 0",
+    padding: "52px 0",
     textAlign: "center",
     "& .MuiToolbar-root": {
       flexDirection: "column",

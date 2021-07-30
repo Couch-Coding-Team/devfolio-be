@@ -25,7 +25,7 @@ const Projects = ({ projects }) => {
         <Tab label="인기순" />
       </Tabs> */}
       <div className={classes.banner}>
-        매주 새로운 포트폴리오가 업데이트 됩니다
+        매주 새로운 포트폴리오가 업데이트 됩니다 👇👇👇
       </div>
       {projects.map((project, i) => {
         return <Project project={project} key={`project__${project.id}`} />;
@@ -36,12 +36,15 @@ const Projects = ({ projects }) => {
 
 export default Projects;
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   banner: {
     padding: "20px 0",
-    margin: "20px -100% 80px -100%",
+    margin: "20px -50% 80px -50%",
     backgroundColor: "black",
     color: "white",
     textAlign: "center",
+    [theme.breakpoints.down("sm")]: {
+      margin: "40px -50% 80px -50%",
+    },
   },
-});
+}));
