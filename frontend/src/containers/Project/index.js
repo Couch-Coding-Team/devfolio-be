@@ -5,8 +5,9 @@ import { Button, Container, makeStyles } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 import ReactMarkdown from "react-markdown";
-import rehypeSanitize from "rehype-sanitize";
 import gfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import format from "rehype-format";
 
 import PROJECT_QUERY from "../../queries/project";
 import Query from "../../components/Query";
@@ -81,7 +82,7 @@ const Project = () => {
               <ReactMarkdown
                 className="readme-markdown"
                 remarkPlugins={[gfm]} // styling table, strikethrough, link, checkbox
-                rehypePlugins={[rehypeSanitize]}
+                rehypePlugins={[rehypeRaw, format]}
                 linkTarget="_blank"
                 children={project.readme_code}
                 components={{
