@@ -39,7 +39,7 @@ export default Projects;
 const useStyles = makeStyles({
   banner: {
     padding: "20px 0",
-    margin: "104px -100%",
+    margin: "20px -100% 80px -100%",
     backgroundColor: "black",
     color: "white",
     textAlign: "center",

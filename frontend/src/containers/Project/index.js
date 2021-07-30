@@ -102,9 +102,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     "& .MuiChip-root": {
       marginRight: "8px",
-      [theme.breakpoints.down("sm")]: {
-        marginBottom: "8px",
-      },
+      marginBottom: "8px",
     },
     "& .readme-markdown": {
       fontFamily: "Arial",

@@ -6,7 +6,7 @@ import Hero from "./Hero";
 import Projects from "./Projects";
 
 const Home = () => (
-  <Container>
+  <Container style={{ paddingTop: "60px" }}>
     <Hero />
     <Query query={PROJECTS_QUERY}>
       {({ data: { projects } }) => <Projects projects={projects} />}
