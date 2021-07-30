@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import moment from "moment";
-import { Button, makeStyles } from "@material-ui/core";
+import { Button, Container, makeStyles } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 import ReactMarkdown from "react-markdown";
@@ -24,7 +24,7 @@ const Project = () => {
           const project = projects[0];
 
           return (
-            <div className={classes.root}>
+            <Container maxWidth="sm" className={classes.root}>
               <h1>{project.title}</h1>
               {project.tech_stacks.map((stack) => (
                 <Tag key={stack.name} label={stack.name} />
@@ -78,9 +78,6 @@ const Project = () => {
                   </Button>
                 </div>
               </div>
-              <div className={classes.imgWrapper}>
-                <img src={project.thumbnail_url} alt={project.thumbnail_url} />
-              </div>
               <ReactMarkdown
                 className="readme-markdown"
                 remarkPlugins={[gfm]} // styling table, strikethrough, link, checkbox
@@ -93,7 +90,7 @@ const Project = () => {
                   ),
                 }}
               />
-            </div>
+            </Container>
           );
         }
       }}

@@ -1,16 +1,18 @@
 import React from "react";
 import Project from "./Project";
+import { Container, makeStyles } from "@material-ui/core";
 // import Tabs from "@material-ui/core/Tabs";
 // import Tab from "@material-ui/core/Tab";
 
 const Projects = ({ projects }) => {
+  const classes = useStyles();
   // const [value, setValue] = React.useState(0);
 
   // const handleChange = (event, newValue) => {
   //   setValue(newValue);
   // };
   return (
-    <div style={{ paddingTop: "72px" }}>
+    <>
       {/* <Tabs
         value={value}
         indicatorColor="primary"
@@ -22,11 +24,26 @@ const Projects = ({ projects }) => {
         <Tab label="최신순" />
         <Tab label="인기순" />
       </Tabs> */}
-      {projects.map((project, i) => {
-        return <Project project={project} key={`project__${project.id}`} />;
-      })}
-    </div>
+      <div className={classes.banner}>
+        매주 새로운 포트폴리오가 업데이트 됩니다
+      </div>
+      <Container>
+        {projects.map((project, i) => {
+          return <Project project={project} key={`project__${project.id}`} />;
+        })}
+      </Container>
+    </>
   );
 };
 
 export default Projects;
+
+const useStyles = makeStyles({
+  banner: {
+    padding: "20px 0",
+    margin: "0 -100% 52px -100%",
+    backgroundColor: "black",
+    color: "white",
+    textAlign: "center",
+  },
+});

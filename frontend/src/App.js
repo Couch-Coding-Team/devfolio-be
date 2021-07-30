@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { CssBaseline, Container } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 import { createTheme, ThemeProvider } from "@material-ui/core/styles";
 
 import Nav from "./components/Nav";
@@ -19,18 +19,16 @@ function App() {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Nav />
-        <Container maxWidth="lg">
-          <Switch>
-            {ROUTES.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                component={route.component}
-                exact={route.exact}
-              />
-            ))}
-          </Switch>
-        </Container>
+        <Switch>
+          {ROUTES.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              component={route.component}
+              exact={route.exact}
+            />
+          ))}
+        </Switch>
         <Footer />
       </ThemeProvider>
     </div>
@@ -66,6 +64,8 @@ const theme = createTheme({
     MuiCssBaseline: {
       "@global": {
         body: {
+          fontSize: "16px",
+          wordBreak: "keep-all",
           "& a": {
             textDecoration: "none",
             color: "initial",
@@ -80,10 +80,7 @@ const theme = createTheme({
     },
     MuiContainer: {
       root: {
-        padding: "72px 36px",
-        "@media (min-width: 768px)": {
-          padding: "140px",
-        },
+        maxWidth: "1140px",
       },
     },
     MuiButton: {

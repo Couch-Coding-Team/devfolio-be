@@ -12,8 +12,8 @@ const Footer = () => {
     >
       <Toolbar>
         <p>DevFolio 2021</p>
-        <p>모든 컨텐츠의 저작권은 Respository 소유자에게 있습니다.</p>
-        <p>문의하기: devfolio.help@gmail.com</p>
+        <p>모든 컨텐츠의 저작권은 GitHub Respository 소유자에게 있습니다.</p>
+        <p>devfolio.help@gmail.com</p>
       </Toolbar>
     </AppBar>
   );
