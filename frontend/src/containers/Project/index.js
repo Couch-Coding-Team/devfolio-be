@@ -13,6 +13,7 @@ import PROJECT_QUERY from "../../queries/project";
 import Query from "../../components/Query";
 import Tag from "../../components/Tag";
 import IconLabel from "../../components/IconLabel";
+import PageNotFound from "../../components/PageNotFound";
 
 const Project = () => {
   const { id } = useParams();
@@ -21,79 +22,75 @@ const Project = () => {
   return (
     <Query query={PROJECT_QUERY} slug={id}>
       {({ data: { projects } }) => {
-        if (projects.length) {
-          const project = projects[0];
+        if (!projects.length) return <PageNotFound />;
+        const project = projects[0];
 
-          return (
-            <Container maxWidth="sm" className={classes.root}>
-              <h1>{project.title}</h1>
-              {project.tech_stacks.map((stack) => (
-                <Tag key={stack.name} label={stack.name} />
-              ))}
-              <div className={classes.details}>
-                <div className={classes.detailsLeft}>
-                  <a
-                    href={project.owner_github_url}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <IconLabel
-                      icon={<GitHubIcon />}
-                      label={project.owner_name}
-                    />
-                  </a>
-                  <span className={classes.date}>
-                    {moment(project.published_at).format("MMM Do YYYY")}
-                  </span>
-                </div>
-                <div>
-                  {project.demo_site_url && (
-                    <Button
-                      color="primary"
-                      variant="contained"
-                      href={project.demo_site_url}
-                      target="_blank"
-                      onClick={() =>
-                        window.gtag("event", "데모사이트 보러가기 클릭", {
-                          project_id: project.id,
-                        })
-                      }
-                      className={classes.button}
-                    >
-                      데모사이트 보러가기
-                    </Button>
-                  )}
+        return (
+          <Container maxWidth="sm" className={classes.root}>
+            <h1>{project.title}</h1>
+            {project.tech_stacks.map((stack) => (
+              <Tag key={stack.name} label={stack.name} />
+            ))}
+            <div className={classes.details}>
+              <div className={classes.detailsLeft}>
+                <a
+                  href={project.owner_github_url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <IconLabel icon={<GitHubIcon />} label={project.owner_name} />
+                </a>
+                <span className={classes.date}>
+                  {moment(project.published_at).format("MMM Do YYYY")}
+                </span>
+              </div>
+              <div>
+                {project.demo_site_url && (
                   <Button
-                    color="secondary"
+                    color="primary"
                     variant="contained"
-                    href={project.project_github_url}
+                    href={project.demo_site_url}
                     target="_blank"
                     onClick={() =>
-                      window.gtag("event", "소스 보러가기 클릭", {
+                      window.gtag("event", "데모사이트 보러가기 클릭", {
                         project_id: project.id,
                       })
                     }
                     className={classes.button}
                   >
-                    GitHub 소스 보러가기
+                    데모사이트 보러가기
                   </Button>
-                </div>
+                )}
+                <Button
+                  color="secondary"
+                  variant="contained"
+                  href={project.project_github_url}
+                  target="_blank"
+                  onClick={() =>
+                    window.gtag("event", "소스 보러가기 클릭", {
+                      project_id: project.id,
+                    })
+                  }
+                  className={classes.button}
+                >
+                  GitHub 소스 보러가기
+                </Button>
               </div>
-              <ReactMarkdown
-                className="readme-markdown"
-                remarkPlugins={[gfm]} // styling table, strikethrough, link, checkbox
-                rehypePlugins={[rehypeRaw, format]}
-                linkTarget="_blank"
-                children={project.readme_code}
-                components={{
-                  img: ({ node, ...props }) => (
-                    <img style={{ maxWidth: "100%" }} {...props} /> // Resizing images inside README to fit container
-                  ),
-                }}
-              />
-            </Container>
-          );
-        }
+            </div>
+            <ReactMarkdown
+              className="readme-markdown"
+              remarkPlugins={[gfm]} // styling table, strikethrough, link, checkbox
+              rehypePlugins={[rehypeRaw, format]}
+              linkTarget="_blank"
+              children={project.readme_code}
+              components={{
+                img: ({ node, ...props }) => (
+                  <img style={{ maxWidth: "100%" }} {...props} /> // Resizing images inside README to fit container
+                ),
+              }}
+            />
+          </Container>
+        );
       }}
     </Query>
   );
