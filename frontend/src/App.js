@@ -7,10 +7,12 @@ import Nav from "./components/Nav";
 import Home from "./containers/Home";
 import Project from "./containers/Project";
 import Footer from "./components/Footer";
+import PageNotFound from "./components/PageNotFound";
 
 const ROUTES = [
   { path: "/", component: Home, exact: true },
   { path: "/project/:id", component: Project, exact: true },
+  { path: "*", component: PageNotFound },
 ];
 
 function App() {

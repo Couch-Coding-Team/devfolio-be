@@ -7,7 +7,12 @@ const Query = ({ children, query, slug }) => {
     variables: { slug: slug },
   });
 
-  if (loading) return <Container>Loading...</Container>;
+  if (loading)
+    return (
+      <Container style={{ height: "800px", textAlign: "center" }}>
+        Loading...
+      </Container>
+    );
   if (error) return <Container>Error: {JSON.stringify(error)}</Container>;
   return children({ data });
 };
