@@ -181,6 +181,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: "24px",
     [theme.breakpoints.down("sm")]: {
       width: "100%",
+      marginBottom: "12px",
     },
   },
 }));

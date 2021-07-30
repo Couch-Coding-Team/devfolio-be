@@ -1,13 +1,14 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { Container } from "@material-ui/core";
 
 const Query = ({ children, query, slug }) => {
   const { data, loading, error } = useQuery(query, {
     variables: { slug: slug },
   });
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {JSON.stringify(error)}</p>;
+  if (loading) return <Container>Loading...</Container>;
+  if (error) return <Container>Error: {JSON.stringify(error)}</Container>;
   return children({ data });
 };
 

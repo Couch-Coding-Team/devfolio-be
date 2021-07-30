@@ -1,6 +1,6 @@
 import React from "react";
 import Project from "./Project";
-import { Container, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 // import Tabs from "@material-ui/core/Tabs";
 // import Tab from "@material-ui/core/Tab";
 
@@ -27,11 +27,9 @@ const Projects = ({ projects }) => {
       <div className={classes.banner}>
         매주 새로운 포트폴리오가 업데이트 됩니다
       </div>
-      <Container>
-        {projects.map((project, i) => {
-          return <Project project={project} key={`project__${project.id}`} />;
-        })}
-      </Container>
+      {projects.map((project, i) => {
+        return <Project project={project} key={`project__${project.id}`} />;
+      })}
     </>
   );
 };
@@ -41,7 +39,7 @@ export default Projects;
 const useStyles = makeStyles({
   banner: {
     padding: "20px 0",
-    margin: "0 -100% 52px -100%",
+    margin: "104px -100%",
     backgroundColor: "black",
     color: "white",
     textAlign: "center",

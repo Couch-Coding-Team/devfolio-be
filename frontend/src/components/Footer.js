@@ -11,7 +11,9 @@ const Footer = () => {
       className={classes.root}
     >
       <Toolbar>
-        <p>DevFolio 2021</p>
+        <p>
+          <strong>DevFolio 2021</strong>
+        </p>
         <p>모든 컨텐츠의 저작권은 GitHub Respository 소유자에게 있습니다.</p>
         <p>devfolio.help@gmail.com</p>
       </Toolbar>
@@ -23,7 +25,8 @@ export default Footer;
 
 const useStyles = makeStyles({
   root: {
-    padding: "36px 0",
+    padding: "104px 0 52px 0",
+    textAlign: "center",
     "& .MuiToolbar-root": {
       flexDirection: "column",
       margin: "auto",
